@@ -1,0 +1,26 @@
+<div class="book-card">
+    <div style="display:flex;">
+        <div>
+            <img [src]="book.imageUrl" class="book-image" />
+        </div>
+        <div class="book-content">
+            <div>
+                <a [href]="book.purchaseLink" target="_blank" style="text-decoration: none;">
+                    <h2 class="book-title" matTooltip="Click to Purchase">{{book.title}}</h2>
+                </a>
+                <hr>
+                <h4 class="book-title" matTooltip="Publish Date" >
+                    <mat-icon>calendar_month</mat-icon>{{book.PublishDate}}
+                </h4>
+            </div>
+            <div class="button-container">
+                <button mat-button (click)="handleActionClick(modifyAction, book.id)"
+                    color="accent">Edit
+                </button>
+                <button mat-button (click)="handleActionClick(deleteAction, book.id)"
+                    color="warn">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

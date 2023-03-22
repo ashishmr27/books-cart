@@ -1,0 +1,36 @@
+<div *ngIf="author" class="app-home">
+    <app-author [name]="author.author" [birthday]="author.birthday" [birthPlace]="author.birthPlace"></app-author>
+    <div class="header-section" *ngIf="bookList.length > 0">
+        <div class="header-flex-container">
+            <div>
+                <h2 class="mat-h2 mdc-button__label">Sort By:</h2>
+            </div>
+            <div>
+                <ng-container *ngFor='let sortOption of sortbyOptions'>
+                    <button mat-raised-button (click)="handleSortByValueChange(sortOption.value)" class="action-buttons"
+                        [color]="selectedSortByOption === sortOption.value ? 'warn' : ''">{{sortOption.viewValue}}</button>
+                </ng-container>
+            </div>
+            <br />
+        </div>
+    </div>
+    <ng-container [ngTemplateOutlet]="bookList.length > 0 ? showBooks : noBooks"
+        [ngTemplateOutletContext]='{bookList: bookList}'></ng-container>
+</div>
+
+<ng-template #showBooks let-bookList="bookList">
+    <div style="margin-top: 20px;text-align: center;" class="mdc-button__label">
+        <h4 class="mat-h4">Available Books:{{bookList.length}} </h4>
+    </div>
+    <div class="header-flex-container">
+        <ng-container *ngFor="let book of bookList;trackBy: bookTrackBy">
+            <app-book [book]="book" (bookAction)="handleBookActions($event)"></app-book>
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #noBooks>
+    <div class="no-books">
+        <p>No Books Found!</p>
+    </div>
+</ng-template>

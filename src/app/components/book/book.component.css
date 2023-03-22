@@ -1,0 +1,53 @@
+@media (min-width: 600px) {
+    :host{
+        margin: 0 10px;
+        width: 40%;
+        text-align: center;
+    }
+}
+@media screen and (max-width:600px) {
+    :host {
+        margin: 0 10px;
+        width: 100%;
+        text-align: center;
+    }
+    
+}
+
+.book-card{
+    height: 200px;
+    margin-top: 20px;
+}
+
+.book-image{
+    height: 200px;
+    border-radius: 10px 0 0 10px
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.button-container > button:nth-child(2){
+    margin-left: 10px;
+}
+.book-content{
+    background: #673ab7;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0 10px 10px 0;
+    height: 200px;
+}
+.book-content div {
+    margin: 10px 10px;
+}
+.book-title{
+    word-wrap:break-word;    
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 0px;
+}

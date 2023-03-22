@@ -1,0 +1,18 @@
+<div class="form-dialog">
+    <span mat-dialog-title>{{data.actionType | uppercase}} BOOK</span>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <ng-container *ngFor="let control of bookFormArray">
+                <mat-form-field appearance="fill" style="width:90%">
+                    <mat-label>{{control}}</mat-label>
+                    <input matInput [formControlName]="control" required>
+                    <mat-error *ngIf="bookForm.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>    
+            </ng-container>
+            <div mat-dialog-actions>
+                <button mat-button [mat-dialog-close]="null">Cancel</button>
+                <button mat-button type="submit" [disabled]="!bookForm.valid">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
